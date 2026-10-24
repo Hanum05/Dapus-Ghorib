@@ -1,1 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daftar Pustaka</title>
+  <style>
+    /* Reset & Variabel Warna Utamanya */
+    :root {
+      --dark-green: #1f4c3d;
+      --off-white: #fbfbf2;
+      --sage-green: #a8bca7;
+      --soft-mint: #e3ece3;
+      --warm-beige: #f2eadb;
+    }
 
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--off-white);
+      color: var(--dark-green);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      padding: 2.5rem 1.25rem;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+    }
+
+    main {
+      width: 100%;
+      max-width: 720px;
+    }
+
+    /* Judul Utama */
+    h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      color: var(--dark-green);
+      margin-bottom: 2rem;
+      text-align: left;
+      letter-spacing: -0.02em;
+    }
+
+    /* Garis Pemisah Tipis bawah Judul */
+    .divider {
+      height: 1px;
+      background-color: var(--sage-green);
+      opacity: 0.6;
+      margin-bottom: 2rem;
+    }
+
+    /* Daftar Pustaka */
+    .reference-list {
+      list-style: none;
+      counter-reset: ref-counter;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .reference-item {
+      counter-increment: ref-counter;
+      position: relative;
+      padding-left: 2.75rem;
+      font-size: 0.975rem;
+      color: var(--dark-green);
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    /* Penomoran Format [1] - [8] */
+    .reference-item::before {
+      content: "[" counter(ref-counter) "]";
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+      color: var(--dark-green);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Penanganan Khusus untuk Undang-Undang */
+    .reference-item.unnumbered {
+      padding-left: 2.75rem;
+    }
+
+    .reference-item.unnumbered::before {
+      content: "";
+    }
+
+    /* Styling Tautan Hyperlink */
+    a.ref-link {
+      color: var(--dark-green);
+      text-decoration: underline;
+      text-decoration-color: rgba(31, 76, 61, 0.4);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    a.ref-link:hover {
+      text-decoration-color: var(--dark-green);
+      opacity: 0.85;
+    }
+
+    a.ref-link:focus-visible {
+      outline: 2px solid var(--dark-green);
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    /* Responsivitas Layar Kecil / Ponsel */
+    @media (max-width: 600px) {
+      body {
+        padding: 1.5rem 1rem;
+      }
+
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .divider {
+        margin-bottom: 1.5rem;
+      }
+
+      .reference-list {
+        gap: 1rem;
+      }
+
+      .reference-item {
+        padding-left: 2.25rem;
+        font-size: 0.9rem;
+      }
+
+      .reference-item.unnumbered {
+        padding-left: 2.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main>
+    <h1>Daftar Pustaka</h1>
+    <div class="divider"></div>
+
+    <ol class="reference-list">
+      <li class="reference-item">
+        Sitepu, E., 2022. <a href="https://doi.org/10.34007/ppd.v1.1.195" target="_blank" rel="noopener noreferrer" class="ref-link">Media Pembelajaran Berbasis Digital</a>. Prosiding Dasar 1 (1), 242–248, tahun 2022.
+      </li>
+
+      <li class="reference-item">
+        Saadah, H., 2023. Aplikasi Pembelajaran Ghorib dan Musykilat Berbasis Mobile Android. Politeknik Negeri Jember, tahun 2023.
+      </li>
+
+      <li class="reference-item">
+        Alenezi, M., 2023. Digital Learning and Digital Institution in Higher Education. Software Engineering and Disruptive Innovation (SEDI), College of Computer and Information Sciences, Prince Sultan University, Riyadh 11586, Saudi Arabia.
+      </li>
+
+      <li class="reference-item">
+        Allen, I. E., &amp; Seaman, J., 2017. <a href="https://files.eric.ed.gov/fulltext/ED580868.pdf" target="_blank" rel="noopener noreferrer" class="ref-link">Digital Learning Compass: Distance Education Enrollment Report 2017</a>. Babson Survey Research Group.
+      </li>
+
+      <li class="reference-item">
+        Hodges, C., et al., 2020. <a href="https://er.educause.edu/articles/2020/3/the-difference-between-emergency-remote-teaching-and-online-learning" target="_blank" rel="noopener noreferrer" class="ref-link">The Difference between Emergency Remote Teaching and Online Learning</a>. Educause Review.
+      </li>
+
+      <li class="reference-item">
+        Picciano, A. G., 2019. <a href="https://doi.org/10.24059/olj.v21i3.1225" target="_blank" rel="noopener noreferrer" class="ref-link">Theories and Framework for Online Education: Seeking an Integrated Model</a>.
+      </li>
+
+      <li class="reference-item unnumbered">
+        Undang-Undang Nomor 20 Tahun 2003 tentang Sistem Pendidikan Nasional.
+      </li>
+
+      <li class="reference-item">
+        Harefa, E., dkk., 2024. <a href="https://buku.sonpedia.com/2024/02/buku-ajar-teori-belajar-dan-pembelajaran.html" target="_blank" rel="noopener noreferrer" class="ref-link">Buku Ajar Teori Belajar dan Pembelajaran</a>. Snopedia Publishing, tahun 2024.
+      </li>
+
+      <li class="reference-item">
+        Lubis, P., Hasibuan, M. B., Gusmaneli, G., 2024. <a href="https://doi.org/10.59841/intellektika.v2i3.1114" target="_blank" rel="noopener noreferrer" class="ref-link">Teori-Teori Belajar dalam Pembelajaran</a>. Jurnal Ilmiah Mahasiswa Vol. 2 No. 3, tahun 2024.
+      </li>
+    </ol>
+  </main>
+
+</body>
+</html>
